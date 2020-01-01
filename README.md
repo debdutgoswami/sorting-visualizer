@@ -6,12 +6,12 @@ A simple python project which visualizes various sorting algorithms.
 
 ## Algorithms Implemented
 
--[x] Bubble Sort
--[x] Selection Sort
--[x] Insertion Sort
--[] Merge Sort
--[] Quick Sort
--[] Heap Sort
+- [x] Bubble Sort
+- [x] Selection Sort
+- [x] Insertion Sort
+- [ ] Merge Sort
+- [ ] Quick Sort
+- [ ] Heap Sort
 
 ---
 
