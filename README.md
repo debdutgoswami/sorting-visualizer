@@ -4,6 +4,14 @@ A simple python project which visualizes various sorting algorithms.
 
 ---
 
+## How to setup
+
+1. Install the necessary packages using the command `pip instal -r requirements.txt`.
+
+2. Run the `main.py` file using the command `python3 main.py`.
+
+---
+
 ## Algorithms Implemented
 
 - [x] Bubble Sort

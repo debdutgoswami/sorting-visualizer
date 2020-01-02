@@ -1,6 +1,7 @@
 sortfunc = {
     1: 'bubblesort', 2: 'insertionsort',
-    3: 'selectionsort', 4: 'mergesort'
+    3: 'selectionsort', 4: 'mergesort',
+    5: 'quicksort', 6: 'heapsort'
 }
 
 sortname = {

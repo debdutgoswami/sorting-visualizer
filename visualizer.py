@@ -10,7 +10,7 @@ def visualize(data: dict):
     A = list(range(1,N+1))
     random.shuffle(A)
 
-    x = getattr(sort, variables.sortfunc[func])(A)
+    generator = getattr(sort, variables.sortfunc[func])(A)
 
     fig, ax = plt.subplots() #creates a figure and subsequent subplots
     ax.set_title(variables.sortname[func])
@@ -29,7 +29,7 @@ def visualize(data: dict):
         iteration[0] += 1
 
         text.set_text("# of operations: {}".format(iteration[0]))
-
-    anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=x, repeat=False, interval=1)
+    #print(len(list(generator)))
+    anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=generator, repeat=False, interval=1)
 
     plt.show()
