@@ -17,7 +17,7 @@ A simple python project which visualizes various sorting algorithms.
 - [x] Bubble Sort
 - [x] Selection Sort
 - [x] Insertion Sort
-- [ ] Merge Sort
+- [x] Merge Sort
 - [ ] Quick Sort
 - [ ] Heap Sort
 
