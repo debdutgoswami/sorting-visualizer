@@ -1,4 +1,5 @@
 import variables, sort
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import random
@@ -21,6 +22,10 @@ def visualize(data: dict):
 
     text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
 
+    # Set up formatting for the movie files
+    Writer = animation.writers['ffmpeg']
+    writer = Writer(fps=60, metadata=dict(artist='Debdut Goswami'), bitrate=1800)
+
     iteration = [0]
     def update(A, rects, iteration):
         for rect, val in zip(rects, A):
@@ -29,7 +34,8 @@ def visualize(data: dict):
         iteration[0] += 1
 
         text.set_text("# of operations: {}".format(iteration[0]))
-    #print(len(list(generator)))
-    anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=generator, repeat=False, interval=1)
 
-    plt.show()
+    #print(len(list(generator)))
+    anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=generator, repeat=True, blit=False, interval=15, save_count=90000)
+
+    anim.save("{}.mp4".format(variables.sortname[func]), writer=writer)
