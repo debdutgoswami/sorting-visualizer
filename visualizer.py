@@ -38,4 +38,7 @@ def visualize(data: dict):
     #print(len(list(generator)))
     anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=generator, repeat=True, blit=False, interval=15, save_count=90000)
 
+    #saves the animation
     anim.save("{}.mp4".format(variables.sortname[func]), writer=writer)
+
+    #plt.show() #for showing the animation on screen 
