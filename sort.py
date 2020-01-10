@@ -82,4 +82,47 @@ def quicksort(A):
     return
 
 def heapsort(A):
-    return
+    n = len(A)
+
+    for i in range(n):
+        # if child is bigger than parent
+        if A[i] > A[(i - 1) // 2]:
+            j = i
+            # swap child and parent until
+            # parent is smaller
+            while A[j] > A[(j - 1) // 2]:
+                swap(A, j, (j - 1) // 2)
+
+                j = (j - 1) // 2
+
+                yield A
+
+    for i in range(n - 1, 0, -1):
+        # swap value of first indexed
+        # with last indexed
+        swap(A, 0, i)
+
+        # maintaining heap property
+        # after each swapping
+        j, index = 0, 0
+
+        while True:
+            index = 2 * j + 1
+
+            # if left child is smaller than
+            # right child point index variable
+            # to right child
+            if (index < (i - 1) and A[index] < A[index + 1]):
+                index += 1
+
+            # if parent is smaller than child
+            # then swapping parent with child
+            # having higher value
+            if index < i and A[j] < A[index]:
+                swap(A, j, index)
+
+
+            j = index
+            if index >= i:
+                break
+            yield A
