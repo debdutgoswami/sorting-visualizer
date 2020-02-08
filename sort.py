@@ -96,8 +96,8 @@ def heapsort(A):
                 j = (j - 1) // 2
 
                 yield A
-
-    for i in range(n - 1, 0, -1):
+    i=n-1
+    while i>=0:
         # swap value of first indexed
         # with last indexed
         swap(A, 0, i)
@@ -105,7 +105,7 @@ def heapsort(A):
         # maintaining heap property
         # after each swapping
         j, index = 0, 0
-
+        i-=1
         while True:
             index = 2 * j + 1
 
