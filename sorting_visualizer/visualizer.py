@@ -1,17 +1,22 @@
-import variables, sort
-import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-import random
+import matplotlib, random, os
+from matplotlib import pyplot as plt, animation
+try:
+    from sorting_visualizer import sort, variables
+except ModuleNotFoundError:
+    import sort, variables
 
-def visualize(data: dict):
-    N =  data['size']
-    func = data['sort']
+def visualize(algo: str, *args, **kwargs):
+    func = algo
+
+    N =  kwargs.get('size', 100)
+    path = kwargs.get('path', os.getcwd())
+    show = kwargs.get('show', True)
+    save = kwargs.get('save', False)
 
     A = list(range(1,N+1))
     random.shuffle(A)
 
-    generator = getattr(sort, variables.sortfunc[func])(A)
+    generator = getattr(sort, func)(A)
 
     fig, ax = plt.subplots() #creates a figure and subsequent subplots
     ax.set_title(variables.sortname[func])
@@ -35,10 +40,17 @@ def visualize(data: dict):
 
         text.set_text("# of operations: {}".format(iteration[0]))
 
-    #print(len(list(generator)))
     anim = animation.FuncAnimation(fig, func=update, fargs=(bar_sub, iteration), frames=generator, repeat=True, blit=False, interval=15, save_count=90000)
 
-    #saves the animation
-    anim.save("{}.mp4".format(variables.sortname[func]), writer=writer)
+    if save:
+        # setting up path
+        _filename = "{}.mp4".format(variables.sortname[func])
+        
+        path = os.path.join(path, _filename)
+        #saves the animation
+        anim.save(path, writer=writer)
 
-    #plt.show() #for showing the animation on screen 
+    if show and not save:
+        plt.show() #for showing the animation on screen
+
+    plt.close()
