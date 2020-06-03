@@ -1,9 +1,11 @@
 [![HitCount](http://hits.dwyl.com/debdutgoswami/sorting-visualizer.svg)](http://hits.dwyl.com/debdutgoswami/sorting-visualizer)
 
 <p align="center">
-<a href="https://pypi.org/project/sorting-visualizer/" rel="nofollow"><img src="" alt="image" style="max-width:100%;"></a>
+<img src="https://img.shields.io/github/workflow/status/debdutgoswami/sorting-visualizer/Upload%20Python%20Package" alt="image", style="max-width:100%;">
+<a href="https://pypi.org/project/sorting-visualizer/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/sorting-visualizer" alt="image" style="max-width:100%;"></a>
 <img src="https://img.shields.io/github/license/debdutgoswami/sorting-visualizer" alt="image" style="max-width:100%;">
 <img src="https://img.shields.io/github/stars/debdutgoswami/sorting-visualizer" alt="image" style="max-width:100%">
+<img src="https://img.shields.io/github/release-date/debdutgoswami/sorting-visualizer" alt="image" style="max-width:100;">
 </p>
 
 # Sorting Visualizer
