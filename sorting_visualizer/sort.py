@@ -78,8 +78,33 @@ def mergesort(A):
 
         counter = 2 * counter
 
-def quicksort(A):
-    return
+# quicksort is a recursive algorithm
+def quicksort(A, low, high):
+    if low < high:
+
+        # pi is the partitioning index of the A
+        pi = partation(A, low, high)
+
+        quicksort(A, low, pi-1)
+        quicksort(A, pi+1, high)
+    return A
+
+# This function is important for the implementation of the quicksort algorithm
+def partation(A, low, high):
+    i = low - 1 # index of smaller element
+    pivot = A[high] # pivot
+
+    for j in range(low, high):
+
+        if A[j] < pivot:
+            i = i + 1
+            A[i], A[j] = A[j], A[i]
+
+    A[i+1], A[high] = A[high], A[i+1]
+
+    return i+1
+
+
 
 def heapsort(A):
     n = len(A)
