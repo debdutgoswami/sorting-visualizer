@@ -124,7 +124,7 @@ def quicksort(A):
             stack[top] = p + 1
             top = top + 1
             stack[top] = high
-    yield A
+        yield A
 
 
 # This function is important for the implementation of the quicksort algorithm
