@@ -78,16 +78,54 @@ def mergesort(A):
 
         counter = 2 * counter
 
-# quicksort is a recursive algorithm
-def quicksort(A, low, high):
-    if low < high:
+def quicksort(A):
+    low = 0
+    high = len(A) - 1
 
-        # pi is the partitioning index of the A
-        pi = partation(A, low, high)
+    # create an auxiliary stack
+    size = high - low + 1
+    stack = [0] * size
 
-        quicksort(A, low, pi-1)
-        quicksort(A, pi+1, high)
-    return A
+    # initialize the top of the stack
+    top = -1
+
+    # push initial values of low and high to stack
+    top = top + 1
+    stack[top] = low
+    top = top + 1
+    stack[top] = high
+
+    # keep popping from stack while it's not empty
+    while top >= 0:
+
+        # pop high and low
+        high = stack[top]
+        top = top - 1
+        low = stack[top]
+        top = top - 1
+
+
+        # Set pivot element at its correct position in
+        # sorted array
+        p = partation( A, low, high )
+
+        # If there are elements on left side of pivot,
+        # then push left side to stack
+        if p-1 > low:
+            top = top + 1
+            stack[top] = low
+            top = top + 1
+            stack[top] = p - 1
+
+        # If there are elements on right side of pivot,
+        # then push right side to stack
+        if p + 1 < high:
+            top = top + 1
+            stack[top] = p + 1
+            top = top + 1
+            stack[top] = high
+    yield A
+
 
 # This function is important for the implementation of the quicksort algorithm
 def partation(A, low, high):
